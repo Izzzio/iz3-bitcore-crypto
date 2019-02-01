@@ -1,0 +1,11 @@
+{
+  "name": "bitcore-crypto",
+  "version": "1.0.0",
+  "description": "IZZZIO cryptography plugin based on bitcore-lib",
+  "main": "index.js",
+  "dependencies": {
+    "bitcore-message": "^1.0.4"
+  },
+  "author": "Andrey Nedobylskiy",
+  "license": "GPL"
+}
