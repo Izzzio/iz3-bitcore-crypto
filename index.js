@@ -63,7 +63,7 @@ function sign(data, privateKeyData) {
  * @return {{keysPair: {private: {senderContainerName, certificateName}, public: *}}}
  */
 function generateWallet(config) {
-    let hash = bitcore.crypto.Hash.sha256(Math.random() + Math.random());
+    let hash = bitcore.crypto.Hash.sha256(Buffer.from(String(Math.random()) + String(Math.random()) + String(Math.random())));
     let privateKey = bitcore.crypto.BN.fromBuffer(hash).toString('hex');
 
     let address = new bitcore.PrivateKey(privateKey).toAddress().toString();
