@@ -23,6 +23,34 @@
 const bitcore = require("bitcore-lib");
 const Message = require('bitcore-message');
 const logger = new (require(global.PATH.mainDir + '/modules/logger'))("bitcore");
+
+const ADDRESS_PREFIX = 'iz';
+
+/**
+ * Public key 2 address
+ * @param pub
+ * @return {*}
+ */
+function public2address(pub) {
+    pub = pub.substr(1);
+    pub = ADDRESS_PREFIX + pub;
+
+    return pub;
+}
+
+/**
+ * Address 2 public key
+ * @param add
+ * @return {string}
+ */
+function address2pubic(add) {
+    if(add.indexOf(ADDRESS_PREFIX) !== 0) {
+        throw new Error('Invalid address');
+    }
+
+    return '1' + add.substr(ADDRESS_PREFIX.length);
+}
+
 /**
  * Validate sign
  * @param data
@@ -31,7 +59,7 @@ const logger = new (require(global.PATH.mainDir + '/modules/logger'))("bitcore")
  * @return {*|Boolean}
  */
 function validate(data, sign, publicKey) {
-    publicKey = String(publicKey);
+    publicKey = address2pubic(String(publicKey));
     data = String(data);
     sign = String(sign);
     try {
@@ -71,7 +99,7 @@ function generateWallet(config) {
     return {
         keysPair: {
             private: privateKey,
-            public: address
+            public: public2address(address)
         }
     }
 }
