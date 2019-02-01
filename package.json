@@ -1,5 +1,5 @@
 {
-  "name": "bitcore-crypto",
+  "name": "iz3-bitcore-crypto",
   "version": "1.0.0",
   "description": "IZZZIO cryptography plugin based on bitcore-lib",
   "main": "index.js",
