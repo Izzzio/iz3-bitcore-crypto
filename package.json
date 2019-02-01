@@ -7,5 +7,9 @@
     "bitcore-message": "^1.0.4"
   },
   "author": "Andrey Nedobylskiy",
-  "license": "GPL"
+  "license": "GPL",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Izzzio/iz3-bitcore-crypto.git"
+  }
 }
