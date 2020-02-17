@@ -117,6 +117,10 @@ module.exports = function register(blockchain, config, storj,) {
     blockchain.wallet.registerGeneratorHook(function () {
         return generateWallet(config);
     });
+    
+    crypto.registerGenerator('bitcore', function () {
+        return generateWallet(config);
+    })
 
     logger.info('OK');
 };
