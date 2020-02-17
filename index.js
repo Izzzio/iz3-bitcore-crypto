@@ -119,7 +119,7 @@ module.exports = function register(blockchain, config, storj,) {
     });
     
     crypto.registerGenerator('bitcore', function () {
-        return generateWallet(config);
+        return generateWallet(config).keysPair;
     })
 
     logger.info('OK');
